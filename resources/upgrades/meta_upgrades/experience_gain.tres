@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dqj3gek3mh863"]
+
+[ext_resource type="Script" path="res://resources/upgrades/meta_upgrades/meta_upgrade.gd" id="1_q3p4s"]
+
+[resource]
+script = ExtResource("1_q3p4s")
+id = "experience_gain"
+max_quantity = 1
+title = "Bottle Collector"
+description = "Increases experience drop chance by 10%"

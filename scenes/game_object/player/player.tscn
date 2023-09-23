@@ -132,6 +132,7 @@ acceleration = 25.0
 [node name="HealthComponent" parent="." instance=ExtResource("2_1oayu")]
 
 [node name="HitRandomStreamPlayer2DComponent" parent="." instance=ExtResource("4_ptd7f")]
+volume_db = 5.0
 streams = Array[AudioStream]([ExtResource("5_hdpg6"), ExtResource("6_cu16j"), ExtResource("7_eceuj"), ExtResource("8_u1avt"), ExtResource("9_c8dpv")])
 
 [node name="Abilities" type="Node" parent="."]

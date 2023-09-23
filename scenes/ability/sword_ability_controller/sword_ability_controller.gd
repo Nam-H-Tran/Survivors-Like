@@ -4,7 +4,7 @@ const MAX_RANGE = 150
 
 @export var sword_ability: PackedScene
 
-var base_damage = 5
+var base_damage = 8
 var additional_damage_percent = 1
 var base_wait_time
 
@@ -50,8 +50,8 @@ func on_timer_timeout():
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
 	if upgrade.id == "sword_rate":
-		var percent_reduction = current_upgrades["sword_rate"]["quantity"] * 0.1
+		var percent_reduction = current_upgrades["sword_rate"]["quantity"] * 0.15
 		$Timer.wait_time = base_wait_time * (1 - percent_reduction)
 		$Timer.start()
 	elif upgrade.id == "sword_damage":
-		additional_damage_percent = 1 + (current_upgrades["sword_damage"]["quantity"] * 0.15)
+		additional_damage_percent = 1 + (current_upgrades["sword_damage"]["quantity"] * 0.25)
