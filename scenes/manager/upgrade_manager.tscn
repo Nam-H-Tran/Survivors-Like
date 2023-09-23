@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1f84c1jfb3p7"]
+
+[ext_resource type="Script" path="res://scenes/manager/upgrade_manager.gd" id="1_o3ou5"]
+[ext_resource type="PackedScene" uid="uid://cf2htnow3fhq4" path="res://scenes/UI/upgrade_screen.tscn" id="3_mi1tv"]
+
+[node name="UpgradeManager" type="Node"]
+script = ExtResource("1_o3ou5")
+upgrade_screen_scene = ExtResource("3_mi1tv")
