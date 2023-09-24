@@ -45,6 +45,7 @@ _data = {
 }
 
 [node name="AxeAbility" type="Node2D"]
+scale = Vector2(1.2, 1.2)
 script = ExtResource("1_55mno")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

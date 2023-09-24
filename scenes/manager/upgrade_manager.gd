@@ -8,15 +8,24 @@ var upgrade_pool: WeightedTable = WeightedTable.new()
  
 var upgrade_axe = preload("res://resources/upgrades/axe.tres")
 var upgrade_axe_damage = preload("res://resources/upgrades/axe_damage.tres")
+var upgrade_axe_count = preload("res://resources/upgrades/axe_amount.tres")
+var upgrade_sword = preload("res://resources/upgrades/sword.tres")
 var upgrade_sword_rate = preload("res://resources/upgrades/sword_rate.tres")
 var upgrade_sword_damage = preload("res://resources/upgrades/sword_damage.tres")
 var upgrade_player_speed = preload("res://resources/upgrades/player_speed.tres")
+var upgrade_anvil = preload("res://resources/upgrades/anvil.tres")
+var upgrade_anvil_count = preload("res://resources/upgrades/anvil_amount.tres")
+var upgrade_health_gain = preload("res://resources/upgrades/health_gain.tres")
+
 
 func _ready():
-	upgrade_pool.add_item(upgrade_axe, 10)
-	upgrade_pool.add_item(upgrade_sword_rate, 10)
-	upgrade_pool.add_item(upgrade_sword_damage, 10)
-	upgrade_pool.add_item(upgrade_player_speed, 5)
+	upgrade_pool.add_item(upgrade_axe, 5)
+	upgrade_pool.add_item(upgrade_anvil, 5)
+	upgrade_pool.add_item(upgrade_sword_rate, 15)
+	upgrade_pool.add_item(upgrade_sword_damage, 15)
+	upgrade_pool.add_item(upgrade_player_speed, 10)
+	upgrade_pool.add_item(upgrade_sword, 5)
+	upgrade_pool.add_item(upgrade_health_gain, 15)
 	
 	experience_manager.level_up.connect(on_level_up)
 
@@ -42,12 +51,21 @@ func apply_upgrade(upgrade: AbilityUpgrade):
 	
 func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
 	if chosen_upgrade.id == upgrade_axe.id:
-		upgrade_pool.add_item(upgrade_axe_damage, 10)
+		upgrade_pool.add_item(upgrade_axe_damage, 15)
+		upgrade_pool.add_item(upgrade_axe_count, 5)
+	elif chosen_upgrade.id == upgrade_anvil.id:
+		upgrade_pool.add_item(upgrade_anvil_count, 5)
 	
 	
 func pick_upgrade():
+	var adjusted_card_count = 2
+	var additional_card = MetaProgression.get_upgrade_count("more_choices")
+	
+	if additional_card > 0:
+		adjusted_card_count += 1
+	
 	var chosen_upgrades: Array[AbilityUpgrade] = []
-	for i in 2:
+	for i in adjusted_card_count:
 		if upgrade_pool.items.size() == chosen_upgrades.size():
 			break
 		var chosen_upgrade = upgrade_pool.pick_item(chosen_upgrades)

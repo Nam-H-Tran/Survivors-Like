@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://djev6lcj5hvkf"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_sabkr"]
+
+[resource]
+script = ExtResource("1_sabkr")
+id = "health_gain"
+max_quantity = 0
+name = "Quick Snack"
+description = "Restore 2 health"

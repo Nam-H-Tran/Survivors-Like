@@ -91,3 +91,8 @@ func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades:
 		abilities.add_child(ability.ability_controller_scene.instantiate())
 	elif ability_upgrade.id == "player_speed":
 		velocity_component.max_speed = base_speed + (base_speed * current_upgrades["player_speed"]["quantity"] * 0.1)
+	elif ability_upgrade.id == "health_gain":
+		if health_component.get_health_percent() == 1:
+			return
+		health_component.damage(-2)
+		update_health_display()

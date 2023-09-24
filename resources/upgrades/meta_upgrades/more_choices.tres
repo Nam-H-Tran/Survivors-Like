@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=2 format=3 uid="uid://cd8s3118tldsc"]
+
+[ext_resource type="Script" path="res://resources/upgrades/meta_upgrades/meta_upgrade.gd" id="1_1ryet"]
+
+[resource]
+script = ExtResource("1_1ryet")
+id = "more_choices"
+max_quantity = 1
+experience_cost = 2500
+title = "MORE OPTIONS!"
+description = "Gives you one additional card choice on level up"

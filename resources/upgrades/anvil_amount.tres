@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://b6unj4vos70ol"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_k2c0e"]
+
+[resource]
+script = ExtResource("1_k2c0e")
+id = "anvil_count"
+max_quantity = 2
+name = "Bonk Master"
+description = "Drop another anvil on your foes"

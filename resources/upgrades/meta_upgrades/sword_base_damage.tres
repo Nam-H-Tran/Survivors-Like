@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=2 format=3 uid="uid://b2hl11exy8stp"]
+
+[ext_resource type="Script" path="res://resources/upgrades/meta_upgrades/meta_upgrade.gd" id="1_3d03d"]
+
+[resource]
+script = ExtResource("1_3d03d")
+id = "sword_base_damage"
+max_quantity = 4
+experience_cost = 1000
+title = "Blacksmith Friend"
+description = "Increases sword base damage"

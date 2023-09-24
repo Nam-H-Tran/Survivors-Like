@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://djnrduui3bhep"]
 
 [ext_resource type="Script" path="res://scenes/UI/main_menu.gd" id="1_3ymxv"]
-[ext_resource type="TileSet" uid="uid://bulbdjb7r5lf8" path="res://resources/tileset.tres" id="1_h31ej"]
+[ext_resource type="TileSet" uid="uid://bulbdjb7r5lf8" path="res://assets/environment/tileset.tres" id="1_h31ej"]
 [ext_resource type="PackedScene" uid="uid://dwijcyj12uf7p" path="res://scenes/UI/sound_button.tscn" id="2_75jt7"]
 [ext_resource type="Texture2D" uid="uid://01dwlw0nyfqa" path="res://scenes/game_object/player/player.png" id="3_7nwr8"]
 [ext_resource type="Texture2D" uid="uid://cmr8tikfium87" path="res://scenes/game_object/wizard_enemy/wizard.png" id="4_4w2vv"]
@@ -49,6 +49,11 @@ text = "Noob's Gauntlet"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Play"
+
+[node name="UpgradesButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_75jt7")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Upgrades"
 
 [node name="OptionsButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_75jt7")]
 unique_name_in_owner = true
