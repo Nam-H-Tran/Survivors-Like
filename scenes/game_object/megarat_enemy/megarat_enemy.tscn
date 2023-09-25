@@ -78,7 +78,7 @@ _data = {
 "walk": SubResource("Animation_drpb8")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fcfd5"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_arfio"]
 resource_local_to_scene = true
 shader = ExtResource("6_sd10w")
 shader_parameter/lerp_percent = 0.0
@@ -116,7 +116,7 @@ acceleration = 20.0
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_4obnb")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_fcfd5")
+hit_flash_material = SubResource("ShaderMaterial_arfio")
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("7_4pybr")]
 health_component = NodePath("../HealthComponent")

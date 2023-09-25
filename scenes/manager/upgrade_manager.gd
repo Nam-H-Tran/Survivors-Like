@@ -16,6 +16,7 @@ var upgrade_player_speed = preload("res://resources/upgrades/player_speed.tres")
 var upgrade_anvil = preload("res://resources/upgrades/anvil.tres")
 var upgrade_anvil_count = preload("res://resources/upgrades/anvil_amount.tres")
 var upgrade_health_gain = preload("res://resources/upgrades/health_gain.tres")
+var upgrade_necromancy = preload("res://resources/upgrades/necromancy.tres")
 
 
 func _ready():
@@ -24,8 +25,9 @@ func _ready():
 	upgrade_pool.add_item(upgrade_sword_rate, 15)
 	upgrade_pool.add_item(upgrade_sword_damage, 15)
 	upgrade_pool.add_item(upgrade_player_speed, 10)
-	upgrade_pool.add_item(upgrade_sword, 5)
+	upgrade_pool.add_item(upgrade_sword, 10)
 	upgrade_pool.add_item(upgrade_health_gain, 15)
+	upgrade_pool.add_item(upgrade_necromancy, 1)
 	
 	experience_manager.level_up.connect(on_level_up)
 

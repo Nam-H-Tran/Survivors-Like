@@ -13,6 +13,12 @@ var base_speed = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var adjusted_max_health = health_component.max_health
+	var health_gain_upgrade_count = MetaProgression.get_upgrade_count("more_health")
+	if health_gain_upgrade_count > 0:
+		adjusted_max_health += 5
+	health_component.max_health = adjusted_max_health
+	health_component.current_health = adjusted_max_health
 	base_speed = velocity_component.max_speed 
 	
 	$CollisionArea2D.body_entered.connect(on_body_entered)

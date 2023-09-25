@@ -18,7 +18,6 @@ var enemy_table = WeightedTable.new()
 var add_wizard_enemy = false
 var add_megarat_enemy = false
 var add_crab_enemy = false
-var add_cyclops_enemy = false
 var add_cyclops_boss = false
 
 func _ready():
@@ -67,7 +66,7 @@ func on_timer_timeout():
 
 
 func on_arena_difficulty_increased(arena_difficulty: int):
-	var time_off = (0.19 / 12) * arena_difficulty
+	var time_off = (0.15 / 12) * arena_difficulty
 	var boss = cyclops_enemy_scene.instantiate() as Node2D
 	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
 	time_off = min(time_off, 0.9)
@@ -79,20 +78,15 @@ func on_arena_difficulty_increased(arena_difficulty: int):
 		add_wizard_enemy = true
 	
 	if arena_difficulty == 18 and add_crab_enemy == false:
-		number_to_spawn += 1
 		enemy_table.add_item(crab_enemy_scene, 20)
 		add_crab_enemy = true
 	
 	if arena_difficulty == 30 and add_megarat_enemy == false:
 		number_to_spawn += 1
-		enemy_table.add_item(megarat_enemy_scene, 15)
+		enemy_table.add_item(megarat_enemy_scene, 10)
 		add_megarat_enemy = true
 	
-	if arena_difficulty == 42 and add_cyclops_boss == false:
+	if arena_difficulty == 48 and add_cyclops_boss == false:
 		entities_layer.add_child(boss)
 		boss.global_position = get_spawn_position()
 		add_cyclops_boss = true
-	
-	if arena_difficulty == 48 and add_cyclops_enemy == false:
-		enemy_table.add_item(cyclops_enemy_scene, 5)
-		add_cyclops_enemy = true

@@ -1,0 +1,188 @@
+[gd_scene load_steps=12 format=3 uid="uid://vlabaoefn7n1"]
+
+[ext_resource type="Script" path="res://scenes/ability/necromancy_ability/necromancy_ability.gd" id="1_tq44l"]
+[ext_resource type="Texture2D" uid="uid://bhmnnemq6tp4n" path="res://assets/particle.png" id="2_iurxa"]
+[ext_resource type="Texture2D" uid="uid://cmu45dm6xgoql" path="res://scenes/ability/necromancy_ability/necromancy.png" id="3_gnctk"]
+[ext_resource type="PackedScene" uid="uid://t04skw2v3xj8" path="res://scenes/component/hit_box_component.tscn" id="4_crkn0"]
+
+[sub_resource type="Animation" id="Animation_h8xjn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBoxComponent/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_74a4k"]
+resource_name = "default"
+length = 1.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBoxComponent/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1, 2.2974, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.8, 2.8), Vector2(2.8, 1.8), Vector2(0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GPUParticles2D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Visuals:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3, 0.5, 0.7, 0.85, 1, 1.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.349066, 0.349066, -0.261799, -0.261799, 0.349066]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yiafu"]
+_data = {
+"RESET": SubResource("Animation_h8xjn"),
+"default": SubResource("Animation_74a4k")
+}
+
+[sub_resource type="Gradient" id="Gradient_3qobp"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ebolm"]
+gradient = SubResource("Gradient_3qobp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_78bwu"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 5.0
+emission_ring_radius = 20.0
+emission_ring_inner_radius = 0.0
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 250.0
+initial_velocity_max = 300.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+color = Color(0.14902, 0.168627, 0.266667, 1)
+color_ramp = SubResource("GradientTexture1D_ebolm")
+hue_variation_min = -0.5
+hue_variation_max = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6sn8f"]
+radius = 56.0
+
+[node name="NecromancyAbility" type="Node2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_tq44l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+libraries = {
+"": SubResource("AnimationLibrary_yiafu")
+}
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 80
+process_material = SubResource("ParticleProcessMaterial_78bwu")
+texture = ExtResource("2_iurxa")
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.9
+fixed_fps = 0
+interpolate = false
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+texture = ExtResource("3_gnctk")
+
+[node name="HitBoxComponent" parent="." instance=ExtResource("4_crkn0")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+shape = SubResource("CircleShape2D_6sn8f")
+disabled = true

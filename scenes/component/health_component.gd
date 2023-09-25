@@ -13,7 +13,8 @@ func _ready():
 	var health_gain_upgrade_count = MetaProgression.get_upgrade_count("more_health")
 	if health_gain_upgrade_count > 0:
 		adjusted_max_health += 5
-	current_health = adjusted_max_health
+	current_health = max_health
+
 
 
 func damage(damage_amount: float):
@@ -23,7 +24,7 @@ func damage(damage_amount: float):
 
 
 func get_health_percent():
-	if adjusted_max_health == 0:
+	if adjusted_max_health <= 0:
 		return 0
 	return min(current_health / adjusted_max_health, 1)
 
