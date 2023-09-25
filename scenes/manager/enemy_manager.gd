@@ -83,7 +83,7 @@ func on_arena_difficulty_increased(arena_difficulty: int):
 	
 	if arena_difficulty == 30 and add_megarat_enemy == false:
 		number_to_spawn += 1
-		enemy_table.add_item(megarat_enemy_scene, 10)
+		enemy_table.add_item(megarat_enemy_scene, 1)
 		add_megarat_enemy = true
 	
 	if arena_difficulty == 48 and add_cyclops_boss == false:
